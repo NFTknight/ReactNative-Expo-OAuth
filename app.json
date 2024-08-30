@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "inx",
+    "slug": "inxexpo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.inx.inx"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "46b61cb7-3f1b-425c-bb50-bcd2ad768c93"
+      }
+    },
+    "owner": "cryptoknight_888",
+    "scheme": "inx"
+  }
+}

@@ -1,0 +1,19 @@
+<svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="52" height="52" rx="26" fill="url(#paint0_radial_2820_33058)"/>
+<g clip-path="url(#clip0_2820_33058)">
+<path d="M22.6665 23.5H29.3332" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22.6665 26.8334H27.6665" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.0083 31.495L22.6667 33.5V31H21C20.337 31 19.7011 30.7366 19.2322 30.2678C18.7634 29.799 18.5 29.1631 18.5 28.5V21.8334C18.5 21.1703 18.7634 20.5344 19.2322 20.0656C19.7011 19.5968 20.337 19.3334 21 19.3334H31C31.663 19.3334 32.2989 19.5968 32.7678 20.0656C33.2366 20.5344 33.5 21.1703 33.5 21.8334V26.4167" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29.3335 31.8334H34.3335" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M31.8335 29.3334V34.3334" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_2820_33058" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(8.19856 4.30765) rotate(55.7944) scale(57.863 60.8187)">
+<stop stop-color="#8839ED"/>
+<stop offset="1" stop-color="#2F49ED"/>
+</radialGradient>
+<clipPath id="clip0_2820_33058">
+<rect width="20" height="20" fill="white" transform="translate(16 16)"/>
+</clipPath>
+</defs>
+</svg>
