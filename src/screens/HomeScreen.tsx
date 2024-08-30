@@ -258,7 +258,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             setIsLoading(false);
             setFurnitureList(prevList => [
               ...prevList,
-              ...data.slice(prevList.length, prevList.length + 7),
+              ...data.slice(prevList.length, prevList.length + 6),
             ]);
           }}
           numColumns={2}
