@@ -170,7 +170,7 @@ const data: Furniture[] = [
   },
 ];
 
-const FurnitureCard: FC<{item: Furniture; style: StyleProp<ViewStyle>}> = ({
+const FurnitureCard: FC<{ item: Furniture; style: StyleProp<ViewStyle> }> = ({
   item,
   style,
 }) => {
@@ -179,22 +179,22 @@ const FurnitureCard: FC<{item: Furniture; style: StyleProp<ViewStyle>}> = ({
   const colors = { text: '#100' };
 
   return (
-    <View key={item.id} style={[{marginTop: 12, flex: 1}, style]}>
+    <View key={item.id} style={[{ marginTop: 12, flex: 1 }, style]}>
       <Image
-        source={{uri: item.imgURL}}
+        source={{ uri: item.imgURL }}
         style={{
           height: randomBool ? 150 : 280,
           alignSelf: 'stretch',
         }}
         resizeMode="cover"
       />
-      <Text style={{marginTop: 8, color: colors.text}}>{item.text}</Text>
+      <Text style={{ marginTop: 8, color: colors.text }}>{item.text}</Text>
     </View>
   )
 }
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
-  const {loggedInUser, setLoggedInUser} = useAuth();
+  const { loggedInUser, setLoggedInUser } = useAuth();
   const [furnitureList, setFurnitureList] = useState(data.slice(0, 7));
   console.log('------ loggedInUser: ', loggedInUser);
   const [isLoading, setIsLoading] = useState(false);
@@ -211,9 +211,9 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
     }
     setIsLoading(false);
   };
-  const renderItem = ({item, i}: {item: any; i: number}): ReactElement => {
+  const renderItem = ({ item, i }: { item: any; i: number }): ReactElement => {
     return (
-      <FurnitureCard item={item} style={{marginLeft: i % 2 === 0 ? 0 : 12}} />
+      <FurnitureCard item={item} style={{ marginLeft: i % 2 === 0 ? 0 : 12 }} />
     );
   };
   const listEmptyComponent = () => {
@@ -225,10 +225,10 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
       </>
     );
   };
-  const delay = (ms :number) => new Promise((resolve) => setTimeout(resolve, ms));
+  const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{flex:1}}>
+      <View style={{ flex: 1 }}>
         <Text style={styles.title}>Welcome {loggedInUser.name}</Text>
         <MasonryList
           keyExtractor={(item: Furniture): string => item.id}
@@ -237,22 +237,8 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             paddingHorizontal: 24,
             alignSelf: 'stretch',
           }}
-          // loading={isLoading}
-          // onEndReached={async() => {
-          //   setIsLoading(true);
-          //   await new Promise(
-          //     resolve => {
-          //       setTimeout(resolve, 1000);
-          //       setFurnitureList(prevList => [
-          //         ...prevList,
-          //         ...data.slice(prevList.length, prevList.length + 7),
-          //       ]);
-          //     }
-          //   );
-          //   setIsLoading(false);
-          // }}
 
-          onEndReached={async() => {
+          onEndReached={async () => {
             setIsLoading(true);
             await delay(1000);
             setIsLoading(false);
@@ -282,6 +268,16 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             ) : (
               <Text style={styles.buttonText}>Log Out</Text>
             )}
+          </Pressable>
+        </LinearGradient>
+        <LinearGradient
+          colors={['#8839ED', '#2F49ED']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={styles.gradient}
+        >
+          <Pressable onPress={() => { navigation.navigate('ARKit') }} style={styles.button}>
+            <Text style={styles.buttonText}>ARKit</Text>
           </Pressable>
         </LinearGradient>
       </View>

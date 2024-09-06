@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from '@react-navigation/native';
 import HomeScreen from "@screens/HomeScreen";
 import LoginScreen from "@screens/LoginScreen";
+import ARKit from "@screens/ARkit";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -29,6 +30,11 @@ const MainNavigator = () => {
       <Stack.Screen
         name='Home'
         component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name='ARKit'
+        component={ARKit}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
