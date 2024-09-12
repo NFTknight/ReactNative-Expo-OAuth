@@ -1,12 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Platform } from "react-native";
-import { AuthProvider, useAuth } from "../contexts/AuthContext";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
-import * as SplashScreen from "expo-splash-screen";
+import React, { useEffect } from "react";
+// navigation
 import { NavigationContainer } from "@react-navigation/native";
+// icon
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+// font
+import { useFonts } from 'expo-font';
+// splash screen
+import * as SplashScreen from "expo-splash-screen";
+// context
+import { AuthProvider } from "../contexts/AuthContext";
+// main navigation
 import MainNavigator from "./MainNavigator";
+
+// ---------------------------------------------------------------- //
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();

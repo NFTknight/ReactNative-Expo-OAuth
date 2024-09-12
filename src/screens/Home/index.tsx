@@ -1,4 +1,5 @@
 import React, { FC, useMemo, useState, ReactElement } from 'react';
+// react native component
 import {
   View,
   Text,
@@ -10,18 +11,20 @@ import {
   Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useAuth } from 'src/contexts/AuthContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import MasonryList from '@react-native-seoul/masonry-list';
-// import {useTheme} from 'dooboo-ui';
+// context
+import { useAuth } from 'src/contexts/AuthContext';
 
+// ---------------------------------------------------------------- //
 
 interface Furniture {
   id: string;
   imgURL: string;
   text: string;
 }
+
+// ---------------------------------------------------------------- //
 
 const data: Furniture[] = [
   {
@@ -170,6 +173,8 @@ const data: Furniture[] = [
   },
 ];
 
+// ---------------------------------------------------------------- //
+
 const FurnitureCard: FC<{ item: Furniture; style: StyleProp<ViewStyle> }> = ({
   item,
   style,
@@ -193,7 +198,9 @@ const FurnitureCard: FC<{ item: Furniture; style: StyleProp<ViewStyle> }> = ({
   )
 }
 
-const HomeScreen = ({ navigation }: { navigation: any }) => {
+// ---------------------------------------------------------------- //
+
+const Home = ({ navigation }: { navigation: any }) => {
   const { loggedInUser, setLoggedInUser } = useAuth();
   const [furnitureList, setFurnitureList] = useState(data.slice(0, 7));
   console.log('------ loggedInUser: ', loggedInUser);
@@ -270,20 +277,12 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             )}
           </Pressable>
         </LinearGradient>
-        <LinearGradient
-          colors={['#8839ED', '#2F49ED']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={styles.gradient}
-        >
-          <Pressable onPress={() => { navigation.navigate('ARKit') }} style={styles.button}>
-            <Text style={styles.buttonText}>ARKit</Text>
-          </Pressable>
-        </LinearGradient>
       </View>
     </SafeAreaView>
   );
 };
+
+// ---------------------------------------------------------------- //
 
 const styles = StyleSheet.create({
   container: {
@@ -316,4 +315,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+// ---------------------------------------------------------------- //
+
+export default Home;

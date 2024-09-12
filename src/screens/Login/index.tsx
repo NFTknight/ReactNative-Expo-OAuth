@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React, { useEffect, useState } from "react";
+// react nativ & expo component
 import {
   View,
   Text,
@@ -11,21 +12,24 @@ import {
   Alert,
   StyleSheet,
 } from "react-native";
-import { Image } from "expo-image";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Spinner from 'react-native-loading-spinner-overlay';
-import Checkbox from "expo-checkbox";
-import { Feather } from "@expo/vector-icons";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { CommonActions, useFocusEffect } from "@react-navigation/native";
+import { Image } from "expo-image";
 import { LinearGradient } from 'expo-linear-gradient';
+import Checkbox from "expo-checkbox";
+// auth
+import * as WebBrowser from "expo-web-browser";
+import * as Google from "expo-auth-session/build/providers/Google";
+// icon
+import { Feather } from "@expo/vector-icons";
+// context
 import { useAuth } from "src/contexts/AuthContext";
 
-import * as WebBrowser from "expo-web-browser";
-WebBrowser.maybeCompleteAuthSession();
-import * as Google from "expo-auth-session/build/providers/Google";
+// ---------------------------------------------------------------- //
 
-const LoginScreen = ({ navigation }: { navigation: any }) => {
+WebBrowser.maybeCompleteAuthSession();
+
+const Login = ({ navigation }: { navigation: any }) => {
   const { loggedInUser, setLoggedInUser } = useAuth();
   const [error, setError] = useState<unknown>(null);
   const [email, setEmail] = React.useState("");
@@ -60,10 +64,10 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
       console.log('Google-SignedIn User info: ', user);
       if (user) {
         setGoogleLoading(true);
-        const userInfo = { email: user.email, name: user.name, avatar: user.picture,authType: 'google' };
+        const userInfo = { email: user.email, name: user.name, avatar: user.picture, authType: 'google' };
         setLoggedInUser(userInfo);
         setGoogleLoading(false);
-        navigation.navigate('Home');
+        navigation.navigate('BottomBar');
       }
     } catch (err) {
       console.error(err);
@@ -168,7 +172,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
               />
               <Text style={styles.rememberMeText}>Remember Me</Text>
             </View>
-            <Pressable onPress={() => {  }}>
+            <Pressable onPress={() => { }}>
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </Pressable>
           </View>
@@ -223,7 +227,7 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
           </Pressable>
           <View style={styles.signUpWrapper}>
             <Text style={styles.noAccountText}>You don't have an account yet?</Text>
-            <Pressable onPress={() => {}}>
+            <Pressable onPress={() => { }}>
               <Text style={styles.signUpText}>Sign Up</Text>
             </Pressable>
           </View>
@@ -232,6 +236,8 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
     </SafeAreaView>
   );
 };
+
+// ---------------------------------------------------------------- //
 
 const styles = StyleSheet.create({
   container: {
@@ -413,4 +419,6 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginScreen;
+// ---------------------------------------------------------------- //
+
+export default Login;
